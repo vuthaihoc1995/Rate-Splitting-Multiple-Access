@@ -23,7 +23,7 @@ zeta_c = 0.6;
 zeta_k = (1-zeta_c)/K;
 % Target rate for common + private stream
 r_c = 0.5;
-r_k = 0.75;
+r_k = 0.25;
 % impefect SIC coefficient
 psik = 0.01;
 % Threshold for decoding common + private stream
