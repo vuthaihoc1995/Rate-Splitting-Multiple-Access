@@ -28,7 +28,7 @@ r_k = 0.75;
 psik = 0.01;
 % Threshold for decoding common + private stream
 threshold_c = 2^(r_c/zeta_c) - 1 ;
-threshold_k = 2^(r_c/r_k)  - 1 ;
+threshold_k = 2^(r_k/zeta_k)  - 1 ;
 % User-k location
 R_cell = 10;
 d_BS_Uk       = (1:1:K)*R_cell/K;
