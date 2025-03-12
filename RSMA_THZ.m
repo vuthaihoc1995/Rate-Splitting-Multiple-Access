@@ -75,23 +75,26 @@ parfor idx1 =1:length(PTdB)
         
         count_nonop = 0; Rate_Uk_common = 0; Rate_Uk_private = 0
         for iter = 1:trial
-            % COUNT OP EVALUTATION
+            % Count Non-Outage Event
             if gamma_kc(iter) > threshold_c && gamma_kp(iter) > threshold_k
                 count_nonop = count_nonop + 1 ;
             end
-            % COUNT Rate EVALUTATION
+            % Sum Rate for each trial 
             Rate_Uk_common = Rate_Uk_common + zeta_c*log2(1+ gamma_kc(iter));
             Rate_Uk_private = Rate_Uk_private + zeta_k*log2(1+ gamma_kc(iter));
         end
-        % COUNT Achievable Rate 
+        % Count Outage Event
         
         CDF_Uk_sim(k,idx1) = 1- count_nonop/trial;
+        
+        % Count Achievable Rate 
+        
         Rate_Uk_sim_common(k,idx1) = Rate_Uk_common/trial;
         Rate_Uk_sim_private(k,idx1) = Rate_Uk_private/trial
     end
 end
 
-%% Analytical for RSMA-THz only
+%% Analytical for Outage Probability only
 CDF_Uk_ana = zeros(K,length(PTdB1));
 for idx = 1:length(PTdB1)
     snr = db2pow(PTdB1(idx) - sig2dBm);
