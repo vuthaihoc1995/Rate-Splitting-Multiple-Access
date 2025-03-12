@@ -37,7 +37,7 @@ tau_k = exp(-d_BS_Uk*kabs)./d_BS_Uk.^2*(lambda/(4*pi))^2*G_Rx;
 %fading coefficient
 m_k = K+ 1 - (1:1:K); Omega_k = 1;
 
-%% Simulation for RSMA-THz only
+%% Simulation for RSMA-THz only %%
 % channel realization
 trial = 1e4;
 for iter = 1:trial
@@ -94,7 +94,7 @@ parfor idx1 =1:length(PTdB)
     end
 end
 
-%% Analytical for Outage Probability only
+%% Analytical for Outage Probability only %%
 CDF_Uk_ana = zeros(K,length(PTdB1));
 for idx = 1:length(PTdB1)
     snr = db2pow(PTdB1(idx) - sig2dBm);
@@ -110,7 +110,7 @@ for idx = 1:length(PTdB1)
 
 end
 
-%% % Define color
+%% Define color %%
 cyan        = [0.00,0.45,0.74];
 red         = [1, 0, 0];
 green       = [0, 1, 0];
